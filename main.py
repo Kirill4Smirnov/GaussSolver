@@ -136,31 +136,27 @@ def row_echelon_form(matrix):
 
 
 matrix = [
-    [8., -7., -6., 9., -5.],
-    [4., -4., -4., 4., -1.],
-    [9., -5., -1., 13., -7],
-    [-4., 1., -2., -7., -5]
+    [2, 3, -8, -2, -1, 0, 0],
+    [0, 0, 0, 8, 7, -8, 0],
+    [-1, 0, 4, 0, 0, 1, 0]
 ]
 
 print("Matrix Before Converting:")
 for row in matrix:
     print(row)
 
-# Convert to Row Echelon Form (REF)
 result = row_echelon_form(matrix)
 
 print("\nAfter Converting to Row Echelon Form:")
 for row in result:
     print(row)
 
-# Convert REF to Reduced Row Echelon Form (RREF)
 result_rref = reduced_row_echelon_form(result)
 
 print("\nAfter Converting to Reduced Row Echelon Form:")
 for row in result_rref:
     print(row)
 
-# Check if it's in Reduced Row Echelon Form (RREF)
 if is_reduced_row_echelon_form(result_rref):
     print("In RREF")
 else:
