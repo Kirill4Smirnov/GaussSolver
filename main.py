@@ -85,7 +85,7 @@ def swap_rows(matrix, row1, row2):
 def make_pivot_one(matrix, pivot_row, col):
     pivot_element = matrix[pivot_row][col]
     if pivot_element != 0:
-        matrix[pivot_row] = [element //
+        matrix[pivot_row] = [element /
                              pivot_element for element in matrix[pivot_row]]
 
 
