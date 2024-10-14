@@ -1,37 +1,3 @@
-def gauss_elimination(matrix, b):
-    n = len(matrix)
-
-    for i in range(n):
-
-        max_row = i
-        for k in range(i + 1, n):
-            if abs(matrix[k][i]) > abs(matrix[max_row][i]):
-                max_row = k
-        matrix[i], matrix[max_row] = matrix[max_row], matrix[i]
-        b[i], b[max_row] = b[max_row], b[i]
-
-        # Check for zero pivot element
-        if abs(matrix[i][i]) < 1e-10:  # Using a small threshold to avoid floating-point issues
-            print(f"Matrix is singular or nearly singular at row {i}.")
-            return None
-
-        for k in range(i + 1, n):
-            factor = matrix[k][i] / matrix[i][i]
-            for j in range(i, n):
-                matrix[k][j] -= factor * matrix[i][j]
-            b[k] -= factor * b[i]
-
-    # Back substitution
-    x = [0] * n
-    for i in range(n - 1, -1, -1):
-        x[i] = b[i]
-        for j in range(i + 1, n):
-            x[i] -= matrix[i][j] * x[j]
-        x[i] /= matrix[i][i]
-
-    return x
-
-
 def is_row_echelon_form(matrix):
     rows = len(matrix)
     cols = len(matrix[0])
@@ -136,9 +102,10 @@ def row_echelon_form(matrix):
 
 
 matrix = [
-    [2, 3, -8, -2, -1, 0, 0],
-    [0, 0, 0, 8, 7, -8, 0],
-    [-1, 0, 4, 0, 0, 1, 0]
+    [24, -23, 6, -64, 6],
+    [-9, 9, -2, 25, -2],
+    [6, -6, 2, -16, 2],
+    [-4, 4, -1, 11, -1]
 ]
 
 print("Matrix Before Converting:")
